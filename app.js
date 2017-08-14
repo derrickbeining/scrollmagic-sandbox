@@ -1,12 +1,22 @@
-const controller = new ScrollMagic.Controller( {
-  vertical: false
+$(function() {
+  // init controller
+  var controller = new ScrollMagic.Controller({
+    globalSceneOptions: { triggerHook: "onEnter", duration: "200%" }
+  });
+
+  // build scenes
+  new ScrollMagic.Scene({ triggerElement: "#parallax1" })
+    .setTween("#parallax1 > div", { y: "80%", ease: Linear.easeNone })
+    .addIndicators()
+    .addTo(controller);
+
+  new ScrollMagic.Scene({ triggerElement: "#parallax2" })
+    .setTween("#parallax2 > div", { y: "80%", ease: Linear.easeNone })
+    .addIndicators()
+    .addTo(controller);
+
+  new ScrollMagic.Scene({ triggerElement: "#parallax3" })
+    .setTween("#parallax3 > div", { y: "80%", ease: Linear.easeNone })
+    .addIndicators()
+    .addTo(controller);
 });
-
-const scene = new ScrollMagic.Scene( {
-  triggerElement: '#element',
-  duration: 500,    // the scene should last for a scroll distance of 100px
-  offset: 0        // start this scene after scrolling for 50px
-})
-.setPin("#element") // pins the element for the the scene's duration
-
-controller.addScene( scene ); // assign the scene to the controller

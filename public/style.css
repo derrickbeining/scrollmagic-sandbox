@@ -1,17 +1,56 @@
-html {
-  height: 2000px;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  height: 2000px;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-div {
+/* div {
   width: 100px;
   height: 100px;
   background-color: black;
+} */
+.scene-parent {
+  margin: 55vh 0;
+  padding: 50px;
+  outline: 1px dashed orange;
 }
 
-#element, #element2, #element3 {
-  background-color: red;
+.scene-parent {
+  width: 33%;
+  display: inline-block;
+}
+
+.tween1 {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  font-family: Helvetica;
+}
+
+.tween2 {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  font-family: Helvetica;
+}
+
+.tween3 {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  font-family: Helvetica;
+}
+
+.parallaxParent {
+  height: 100vh;
+  overflow: hidden;
+}
+.parallaxParent > * {
+  height: 200%;
+  position: relative;
+  top: -100%;
 }
