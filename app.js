@@ -8,5 +8,3 @@ new ScrollMagic.Scene({
 })
 .setPin("#element") // pins the element for the the scene's duration
 .addTo(controller); // assign the scene to the controller
-
-console.log('hey')

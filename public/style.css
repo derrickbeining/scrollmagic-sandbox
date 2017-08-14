@@ -1,9 +1,9 @@
 div {
   width: 100px;
   height: 100px;
-  color: black;
+  background-color: black;
 }
 
 #element {
-  color: white;
+  background-color: white;
 }
