@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<head>
+  <title>ScrollMagic</title>
+  <style>
+        @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700,700italic";
+        body {
+        background: #3883D8;
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-size: 13px;
+        tap-highlight-color: transparent;
+        }
+        body,
+        html {
+        height: 100%;
+        }
+        h1,
+        h2,
+        h3,
+        h4 {
+        font-family: "Josefin Slab", serif;
+        font-weight: bold;
+        }
+        h1 {
+        font-style: italic;
+        font-weight: bold;
+        font-size: 22px;
+        }
+        h2 {
+        font-size: 18px;
+        }
+        .noselect * {
+        -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        }
+        header {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+        }
+        .container {
+        height: 100%;
+        margin: 0 auto;
+        max-width: 900px;
+        position: relative;
+        width: 100%;
+        }
+        #content-wrapper {
+        height: 100%;
+        min-height: 500px;
+        width: 100%;
+        }
+        .scroll-magic-section {
+        height: 100%;
+        }
+        #pin {
+        overflow: hidden;
+        width: 100%;
+        }
+        #pin h3 {
+        margin: -40px 0 0 0;
+        position: relative;
+        top: 50%;
+        font-size: 80px;
+        line-height: 80px;
+        text-align: center;
+        color: #EFEFEF;
+        }
+        #wipe {
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+        width: 100%;
+        background: #2e639e;
+        }
+        #wipe h3 {
+        color: white;
+        }
+        #second-wipe {
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+        width: 100%;
+        background: red;
+        }
+        #slide {
+        height: 100%;
+        position: absolute;
+        top: -100%;
+        width: 100%;
+        background: #c7e1ff;
+        }
+        #slide h3 {
+        position: absolute;
+        width: 100%;
+        color: black;
+        }
+        #slide-dos {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+        width: 100%;
+        background: tan;
+        }
+        #unpin {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: maroon;
+        }
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+</head>
+
+
+<body>
+
+        <header role="banner">
+                <a href="index.html">Go Back</a>
+              </header>
+
+              <div id="content-wrapper">
+
+                  <section id="pin" class="scroll-magic-section">
+                      <h3 id="hlpin">Pinned Yo!</h3>
+
+                      <div id="wipe">
+                          <div class="container">
+                              <h3>Wipe Uno TranslateY</h3>
+                          </div>
+                      </div>
+
+                      <div id="second-wipe">
+                          <div class="container">
+                              <h3>Wipe Dos TranslateY</h3>
+                          </div>
+                      </div>
+
+                      <div id="slide">
+                          <div class="container">
+                              <h3>Slide Bounce Brosicle</h3>
+                              <h3> ZOMG Colors!</h3>
+                          </div>
+                      </div>
+
+                  <div id="slide-dos">
+                          <div class="container">
+                              <h3>Slide TranslateX</h3>
+                          </div>
+                      </div>
+
+                      <div id="unpin">
+                          <div class="container">
+                              <h3>Unpinzd Dawg</h3>
+                          </div>
+                      </div>
+
+                  </section>
+              </div>
+
+
+    <script>
+        var controller = new ScrollMagic.Controller({
+        globalSceneOptions: {
+            triggerHook: "onLeave"
+        }
+        });
+
+
+        var pinani = new TimelineMax()
+            .add(TweenMax.to("#wipe", 1, {transform: "translateY(0)"}))
+            .add(TweenMax.to("#second-wipe", 1, {transform: "translateY(0)"}))
+            .add(TweenMax.to("#slide", 1, {top: "0%", ease: Bounce.easeOut, delay: 0.2}))
+            .add([
+                TweenMax.to("#slide h3:first-child", 0.2, {autoAlpha: 0}),
+                TweenMax.from("#slide h3:last-child", 0.2, {autoAlpha: 0})
+            ])
+            .add([
+                TweenMax.to("#slide", 0.3, {backgroundColor: "yellow"}),
+                TweenMax.to("#slide h3:last-child", 0.3, {color: "blue"})
+            ])
+            .add([
+                TweenMax.to("#slide", 0.3, {backgroundColor: "green"}),
+                TweenMax.to("#slide h3:last-child", 0.3, {color: "red"})
+            ])
+            .add([
+                TweenMax.to("#slide", 0.3, {backgroundColor: "red"}),
+                TweenMax.to("#slide h3:last-child", 0.3, {color: "white"})
+            ])
+            .add([
+                TweenMax.to("#slide", 0.3, {backgroundColor: "#c7e1ff"}),
+                TweenMax.to("#slide h3:last-child", 0.3, {color: "black"})
+            ])
+            .add(TweenMax.to("#slide-dos", 1, {transform: "translateX(0)"}))
+            .add(TweenMax.from("#unpin", .5, {top: "100%"}));
+
+        new ScrollMagic.Scene({
+        triggerElement: "section#pin",
+        duration: '100%'
+        })
+        .setTween(pinani)
+        .setPin("section#pin")
+        .addTo(controller);
+    </script>
+</body>

@@ -1,7 +1,11 @@
 $(function() {
   // init controller
   var controller = new ScrollMagic.Controller({
-    globalSceneOptions: { triggerHook: "onEnter", duration: "200%" }
+    globalSceneOptions: {
+      triggerHook: "onEnter",
+      duration: "200%",
+      vertical: false
+    }
   });
 
   // build scenes
