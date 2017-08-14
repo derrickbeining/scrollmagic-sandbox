@@ -15,7 +15,7 @@ $(function() {
     .addTo(controller);
 
   new ScrollMagic.Scene({ triggerElement: "#parallax2" })
-    .setTween("#parallax2 > div", { y: "80%", ease: Linear.easeNone })
+    .setTween("#parallax2 > div", { y: "80f%", ease: Linear.easeNone })
     .addIndicators()
     .addTo(controller);
 
