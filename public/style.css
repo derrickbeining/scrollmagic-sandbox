@@ -1,9 +1,17 @@
+html {
+  height: 2000px;
+}
+
+body {
+  height: 2000px;
+}
+
 div {
   width: 100px;
   height: 100px;
   background-color: black;
 }
 
-#element {
-  background-color: white;
+#element, #element2, #element3 {
+  background-color: red;
 }
